@@ -1,0 +1,9 @@
+services:
+    rubencm.customregistrationagreement.listener:
+        class: rubencm\customregistrationagreement\event\listener
+        arguments:
+            - '@config'
+            - '@config_text'
+            - '@template'
+        tags:
+            - { name: event.listener }
