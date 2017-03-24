@@ -56,6 +56,7 @@ class main_module
 
 		// Add necesary language files
 		$this->user->add_lang(array('acp/common', 'posting'));
+		$this->user->add_lang_ext('rubencm/customregistrationagreement', 'custom_registration_agreement_acp');
 
 		// Template from adm/style
 		$this->tpl_name = 'acp_custom_registration_agreement';

@@ -89,7 +89,6 @@ class listener implements EventSubscriberInterface
 		// Output board announcement to the template
 		$this->template->assign_vars(array(
 			'L_TERMS_OF_USE'	=> $register_agreement_message,
-			)
-		);
+		));
 	}
 }

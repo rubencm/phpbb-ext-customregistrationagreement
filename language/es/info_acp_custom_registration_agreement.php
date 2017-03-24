@@ -20,7 +20,7 @@ if (empty($lang) || !is_array($lang))
 
 $lang = array_merge($lang, array(
 	// ACP Module
-	'ACP_CUSTOM_REGISTRATION_AGREEMENT_TITLE'	=> 'Custom Registration Agreement',
-	'ACP_SETTINGS'								=> 'Settings',
+	'ACP_CUSTOM_REGISTRATION_AGREEMENT_TITLE'	=> 'Condiciones de Registro Personalizadas',
+	'ACP_SETTINGS'								=> 'Configuración',
 ));
 

@@ -19,8 +19,9 @@ if (empty($lang) || !is_array($lang))
 }
 
 $lang = array_merge($lang, array(
-	// ACP Module
-	'ACP_CUSTOM_REGISTRATION_AGREEMENT_TITLE'	=> 'Custom Registration Agreement',
-	'ACP_SETTINGS'								=> 'Settings',
+	'ENABLE_CUSTOM_AGREEMENT'					=> 'Activar Condiciones de Registro Personalizadas',
+	'ENABLE_CUSTOM_AGREEMENT_EXPLAIN'			=> 'Si se desactiva, se mostrará el mensaje por defecto.',
+	
+	'CUSTOM_AGREEMENT'							=> 'Condiciones de Registro Personalizadas',
+	'CUSTOM_AGREEMENT_EXPLAIN'
 ));
-
