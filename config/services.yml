@@ -2,6 +2,7 @@ services:
     rubencm.customregistrationagreement.listener:
         class: rubencm\customregistrationagreement\event\listener
         arguments:
+            - '@cache.driver'
             - '@config'
             - '@config_text'
             - '@template'

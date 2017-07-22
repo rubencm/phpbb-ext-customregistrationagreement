@@ -17,6 +17,9 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 */
 class listener implements EventSubscriberInterface
 {
+	/** \phpbb\cache\driver\driver_interface */
+	protected $cache;
+
 	/** @var \phpbb\config\config */
 	protected $config;
 
@@ -34,8 +37,9 @@ class listener implements EventSubscriberInterface
 	* @param \phpbb\template\template    $template           Template object
 	* @access public
 	*/
-	public function __construct(\phpbb\config\config $config, \phpbb\config\db_text $config_text, \phpbb\template\template $template)
+	public function __construct(\phpbb\cache\driver\driver_interface $cache, \phpbb\config\config $config, \phpbb\config\db_text $config_text, \phpbb\template\template $template)
 	{
+		$this->cache = $cache;
 		$this->config = $config;
 		$this->config_text = $config_text;
 		$this->template = $template;
@@ -70,13 +74,20 @@ class listener implements EventSubscriberInterface
 			return;
 		}
 
-		// Get board data from the config_text object
-		$register_agreement_data = $this->config_text->get_array(array(
-			'register_agreement_text',
-			'register_agreement_uid',
-			'register_agreement_bitfield',
-			'register_agreement_options',
-		));
+		$register_agreement_data = $this->cache->get('_register_agreement_data');
+
+		if($register_agreement_data === false)
+		{
+			// Get board data from the config_text object
+			$register_agreement_data = $this->config_text->get_array(array(
+				'register_agreement_text',
+				'register_agreement_uid',
+				'register_agreement_bitfield',
+				'register_agreement_options',
+			));
+
+			$this->cache->put('_register_agreement_data', $register_agreement_data);
+		}
 
 		// Prepare message for display
 		$register_agreement_message = generate_text_for_display(

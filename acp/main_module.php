@@ -12,6 +12,9 @@ namespace rubencm\customregistrationagreement\acp;
 
 class main_module
 {
+	/** \phpbb\cache\driver\driver_interface */
+	protected $cache;
+
 	/** @var \phpbb\config\config */
 	protected $config;
 
@@ -46,6 +49,7 @@ class main_module
 	{
 		global $phpbb_container;
 
+		$this->cache = $phpbb_container->get('cache.driver');
 		$this->config = $phpbb_container->get('config');
 		$this->config_text = $phpbb_container->get('config_text');
 		$this->request = $phpbb_container->get('request');
@@ -116,6 +120,9 @@ class main_module
 				'register_agreement_bitfield'		=> $data['register_agreement_bitfield'],
 				'register_agreement_options'		=> $data['register_agreement_options'],
 			));
+
+			// Remove from cache
+			$this->cache->destroy('_register_agreement_data');
 
 			trigger_error($this->user->lang('CONFIG_UPDATED') . adm_back_link($this->u_action));
 		}
