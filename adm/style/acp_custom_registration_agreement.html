@@ -26,6 +26,13 @@
          </dl>
       </fieldset>
 
+	<!-- IF REGISTER_AGREEMENT_PREVIEW -->
+		<fieldset>
+			<legend>{L_CUSTOM_AGREEMENT_PREVIEW}</legend>
+			<div style="padding:10px; font-size:1.0em; overflow: auto;">{REGISTER_AGREEMENT_PREVIEW}</div>
+		</fieldset>
+	<!-- ENDIF -->
+
       <fieldset>
          <legend>{L_CUSTOM_AGREEMENT}</legend>
 
@@ -54,6 +61,7 @@
 
       <p class="submit-buttons">
          <input class="button1" type="submit" id="submit" name="submit" value="{L_SUBMIT}" />&nbsp;
+		 <input class="button2" type="submit" name="preview" value="{L_PREVIEW}" />&nbsp;
          <input class="button2" type="reset" id="reset" name="reset" value="{L_RESET}" />
          {S_FORM_TOKEN}
       </p>

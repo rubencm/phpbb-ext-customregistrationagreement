@@ -23,5 +23,7 @@ $lang = array_merge($lang, array(
 	'ENABLE_CUSTOM_AGREEMENT_EXPLAIN'			=> 'Si se desactiva, se mostrará el mensaje por defecto.',
 	
 	'CUSTOM_AGREEMENT'							=> 'Condiciones de Registro Personalizadas',
-	'CUSTOM_AGREEMENT_EXPLAIN'
+	'CUSTOM_AGREEMENT_EXPLAIN'					=> '',
+
+	'CUSTOM_AGREEMENT_PREVIEW'					=> 'Condiciones de Registro Personalizadas - Previsualizar',
 ));

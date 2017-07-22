@@ -89,7 +89,7 @@ class main_module
 		$register_agreement_enable = $this->config['register_agreement_enable'];
 
 		// If form is submitted or previewed
-		if ($this->request->is_set_post('submit'))
+		if ($this->request->is_set_post('submit') || $this->request->is_set_post('preview'))
 		{
 			if (!check_form_key($form_name))
 			{
@@ -110,21 +110,31 @@ class main_module
 				!$this->request->variable('disable_smilies', false)
 			);
 
-			// Store the config enable/disable state
-			$this->config->set('register_agreement_enable', $register_agreement_enable);
+			if ($this->request->is_set_post('submit'))
+			{
+				// Store the config enable/disable state
+				$this->config->set('register_agreement_enable', $register_agreement_enable);
 
-			// Store settings to the config_table in the database
-			$this->config_text->set_array(array(
-				'register_agreement_text'			=> $data['register_agreement_text'],
-				'register_agreement_uid'			=> $data['register_agreement_uid'],
-				'register_agreement_bitfield'		=> $data['register_agreement_bitfield'],
-				'register_agreement_options'		=> $data['register_agreement_options'],
-			));
+				// Store settings to the config_table in the database
+				$this->config_text->set_array(array(
+					'register_agreement_text'			=> $data['register_agreement_text'],
+					'register_agreement_uid'			=> $data['register_agreement_uid'],
+					'register_agreement_bitfield'		=> $data['register_agreement_bitfield'],
+					'register_agreement_options'		=> $data['register_agreement_options'],
+				));
 
-			// Remove from cache
-			$this->cache->destroy('_register_agreement_data');
+				// Remove from cache
+				$this->cache->destroy('_register_agreement_data');
 
-			trigger_error($this->user->lang('CONFIG_UPDATED') . adm_back_link($this->u_action));
+				trigger_error($this->user->lang('CONFIG_UPDATED') . adm_back_link($this->u_action));
+			}
+		}
+
+		// Prepare preview
+		$register_agreement_preview = '';
+		if ($this->request->is_set_post('preview'))
+		{
+			$register_agreement_preview = generate_text_for_display($data['register_agreement_text'], $data['register_agreement_uid'], $data['register_agreement_bitfield'], $data['register_agreement_options']);
 		}
 
 		// prepare the text for editing inside the textbox
@@ -135,6 +145,7 @@ class main_module
 			'REGISTER_AGREEMENT_ENABLE'		=> $register_agreement_enable,
 
 			'REGISTER_AGREEMENT_TEXT'		=> $register_agreement_text_edit['text'],
+			'REGISTER_AGREEMENT_PREVIEW'	=> $register_agreement_preview,
 
 			'S_BBCODE_DISABLE_CHECKED'		=> !$register_conditions_text_edit['allow_bbcode'],
 			'S_SMILIES_DISABLE_CHECKED'		=> !$register_conditions_text_edit['allow_smilies'],
