@@ -30,13 +30,13 @@ class listener implements EventSubscriberInterface
 	protected $template;
 
 	/**
-	* Constructor
-	*
-	* @param \phpbb\config\config        $config             Config object
-	* @param \phpbb\config\db_text       $config_text        DB text object
-	* @param \phpbb\template\template    $template           Template object
-	* @access public
-	*/
+	 * Constructor
+	 *
+	 * @param \phpbb\config\config        $config             Config object
+	 * @param \phpbb\config\db_text       $config_text        DB text object
+	 * @param \phpbb\template\template    $template           Template object
+	 * @access public
+	 */
 	public function __construct(\phpbb\cache\driver\driver_interface $cache, \phpbb\config\config $config, \phpbb\config\db_text $config_text, \phpbb\template\template $template)
 	{
 		$this->cache = $cache;
@@ -46,12 +46,12 @@ class listener implements EventSubscriberInterface
 	}
 
 	/**
-	* Assign functions defined in this class to event listeners in the core
-	*
-	* @return array
-	* @static
-	* @access public
-	*/
+	 * Assign functions defined in this class to event listeners in the core
+	 *
+	 * @return array
+	 * @static
+	 * @access public
+	 */
 	static public function getSubscribedEvents()
 	{
 		return array(
@@ -60,23 +60,23 @@ class listener implements EventSubscriberInterface
 	}
 
 	/**
-	* Replace registration agreement
-	*
-	* @param \phpbb\event\data $event The event object
-	* @return void
-	* @access public
-	*/
+	 * Replace registration agreement
+	 *
+	 * @param \phpbb\event\data $event The event object
+	 * @return void
+	 * @access public
+	 */
 	public function add_registration_agreement($event)
 	{
 		// Stop if custom agreement is disabled
-		if(!$this->config['register_agreement_enable'])
+		if (!$this->config['register_agreement_enable'])
 		{
 			return;
 		}
 
 		$register_agreement_data = $this->cache->get('_register_agreement_data');
 
-		if($register_agreement_data === false)
+		if ($register_agreement_data === false)
 		{
 			// Get board data from the config_text object
 			$register_agreement_data = $this->config_text->get_array(array(
@@ -97,7 +97,7 @@ class listener implements EventSubscriberInterface
 			$register_agreement_data['register_agreement_options']
 		);
 
-		// Output board announcement to the template
+		// Output registration agreement to the template
 		$this->template->assign_vars(array(
 			'L_TERMS_OF_USE'	=> $register_agreement_message,
 		));
