@@ -23,4 +23,3 @@ $lang = array_merge($lang, array(
 	'ACP_CUSTOM_REGISTRATION_AGREEMENT_TITLE'	=> 'Condiciones de Registro Personalizadas',
 	'ACP_SETTINGS'								=> 'Configuración',
 ));
-
