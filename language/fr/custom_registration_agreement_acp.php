@@ -21,7 +21,7 @@ if (empty($lang) || !is_array($lang))
 $lang = array_merge($lang, array(
 	'ENABLE_CUSTOM_AGREEMENT'					=> 'Activer les conditions d’enregistrement personnalisées',
 	'ENABLE_CUSTOM_AGREEMENT_EXPLAIN'			=> 'Si ce réglage est désactivé, le message par défaut sera affiché.',
-	
+
 	'CUSTOM_AGREEMENT'							=> 'Conditions d’enregistrement personnalisées',
 	'CUSTOM_AGREEMENT_EXPLAIN'					=> '',
 
