@@ -147,9 +147,9 @@ class main_module
 			'REGISTER_AGREEMENT_TEXT'		=> $register_agreement_text_edit['text'],
 			'REGISTER_AGREEMENT_PREVIEW'	=> $register_agreement_preview,
 
-			'S_BBCODE_DISABLE_CHECKED'		=> !$register_conditions_text_edit['allow_bbcode'],
-			'S_SMILIES_DISABLE_CHECKED'		=> !$register_conditions_text_edit['allow_smilies'],
-			'S_MAGIC_URL_DISABLE_CHECKED'	=> !$register_conditions_text_edit['allow_urls'],
+			'S_BBCODE_DISABLE_CHECKED'		=> !$register_agreement_text_edit['allow_bbcode'],
+			'S_SMILIES_DISABLE_CHECKED'		=> !$register_agreement_text_edit['allow_smilies'],
+			'S_MAGIC_URL_DISABLE_CHECKED'	=> !$register_agreement_text_edit['allow_urls'],
 
 			'BBCODE_STATUS'					=> $this->user->lang('BBCODE_IS_ON', '<a href="' . append_sid("{$this->phpbb_root_path}faq.{$this->php_ext}", 'mode=bbcode') . '">', '</a>'),
 			'SMILIES_STATUS'				=> $this->user->lang('SMILIES_ARE_ON'),
