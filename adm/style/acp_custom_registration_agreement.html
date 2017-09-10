@@ -20,8 +20,8 @@
 				<label for="require_activation">{{ lang('ENABLE_CUSTOM_AGREEMENT') }}{{ lang('COLON') }}</label><br /><span>{{ lang('ENABLE_CUSTOM_AGREEMENT_EXPLAIN') }}</span>
 			</dt>
 			<dd>
-				<label><input type="radio" name="register_agreement_enable" value="1"{% if REGISTER_AGREEMENT_ENABLE %} checked{% endif %}> {{ lang('YES') }}</label>
-				<label><input type="radio" name="register_agreement_enable" value="0"{% if not REGISTER_AGREEMENT_ENABLE %} checked{% endif %}> {{ lang('NO') }}</label>
+				<label><input type="radio" class="radio" id="require_activation" name="register_agreement_enable" value="1"{% if REGISTER_AGREEMENT_ENABLE %} checked{% endif %}> {{ lang('YES') }}</label>
+				<label><input type="radio" class="radio" name="register_agreement_enable" value="0"{% if not REGISTER_AGREEMENT_ENABLE %} checked{% endif %}> {{ lang('NO') }}</label>
 			</dd>
 		</dl>
 	</fieldset>
