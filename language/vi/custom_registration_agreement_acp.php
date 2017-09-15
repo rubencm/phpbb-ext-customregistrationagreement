@@ -23,6 +23,7 @@ $lang = array_merge($lang, array(
 	'ENABLE_CUSTOM_AGREEMENT_EXPLAIN'			=> 'Nếu tắc, nội dung mặc định của hệ thống sẽ được sử dụng.',
 
 	'CUSTOM_AGREEMENT'							=> 'Điều khoản đăng ký',
+	'CUSTOM_AGREEMENT_EXPLAIN'					=> '',
 
 	'CUSTOM_AGREEMENT_PREVIEW'					=> 'Xem trước',
 ));
