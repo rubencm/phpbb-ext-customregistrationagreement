@@ -23,7 +23,6 @@ $lang = array_merge($lang, array(
 	'ENABLE_CUSTOM_AGREEMENT_EXPLAIN'			=> 'If it is disabled, the default message will be displayed.',
 
 	'CUSTOM_AGREEMENT'							=> 'Custom registration agreement',
-	'CUSTOM_AGREEMENT_EXPLAIN'					=> '',
 
 	'CUSTOM_AGREEMENT_PREVIEW'					=> 'Custom registration agreement - Preview',
 ));
