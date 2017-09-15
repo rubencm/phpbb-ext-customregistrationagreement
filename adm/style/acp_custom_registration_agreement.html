@@ -17,7 +17,7 @@
 
 		<dl>
 			<dt>
-				<label for="require_activation">{{ lang('ENABLE_CUSTOM_AGREEMENT') }}{{ lang('COLON') }}</label><br /><span>{{ lang('ENABLE_CUSTOM_AGREEMENT_EXPLAIN') }}</span>
+				<label for="require_activation">{{ lang('ENABLE_CUSTOM_AGREEMENT') }}{{ lang('COLON') }}</label>{% if lang_defined('ENABLE_CUSTOM_AGREEMENT_EXPLAIN') %}<br /><span>{{ lang('ENABLE_CUSTOM_AGREEMENT_EXPLAIN') }}</span>{% endif %}
 			</dt>
 			<dd>
 				<label><input type="radio" class="radio" id="require_activation" name="register_agreement_enable" value="1"{% if REGISTER_AGREEMENT_ENABLE %} checked{% endif %}> {{ lang('YES') }}</label>
