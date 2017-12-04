@@ -99,7 +99,7 @@ class listener implements EventSubscriberInterface
 
 		// Output registration agreement to the template
 		$this->template->assign_vars(array(
-			'L_TERMS_OF_USE'	=> $register_agreement_message,
+			'L_TERMS_OF_USE'	=> '</p>' . $register_agreement_message . '<p>',
 		));
 	}
 }
